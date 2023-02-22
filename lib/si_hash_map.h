@@ -12,9 +12,9 @@ struct siHashMap {
     siHashMapEntry_t *entries;
 };
 
-struct siHashMap *iHashMap_new(void);
-struct siHashMap *iHashMap_fromArr(int *, int);
-void iHashMap_put(struct iHashMap *, char[]);
-int iHashMap_get(struct iHashMap);
+struct siHashMap *siHashMap_new(void);
+struct siHashMap *siHashMap_fromArr(int *, int);
+void siHashMap_put(struct siHashMap *, char[]);
+int siHashMap_get(struct siHashMap);
 
 #endif
