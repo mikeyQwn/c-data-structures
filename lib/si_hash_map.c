@@ -35,7 +35,8 @@ struct siHashMap *siHashMap_newWithCapacity(int capacity) {
         (struct siHashMap *)malloc(sizeof(struct siHashMap));
     map->size = 0;
     map->capacity = capacity;
-    map->entries = malloc(sizeof(int) * map->capacity);
+    map->entries =
+        (siHashMapEntry_t **)malloc(sizeof(siHashMapEntry_t *) * map->capacity);
     return map;
 }
 
