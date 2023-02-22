@@ -66,4 +66,10 @@ void siHashMap_put(struct siHashMap *map, char *key, int value) {
     ++map->size;
 };
 
-int siHashMap_get(struct siHashMap);
+int siHashMap_get(struct siHashMap map, char *key) {
+    unsigned int index = getHash(key) % map.capacity;
+    siHashMapEntry_t *iter = map.entries[index];
+    while (!(strcmp(iter->key, key) == 0))
+        iter = iter->next;
+    return iter->value;
+};
