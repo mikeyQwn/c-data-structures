@@ -49,6 +49,7 @@ void siHashMap_put(struct siHashMap *map, char *key, int value) {
         (siHashMapEntry_t *)malloc(sizeof(siHashMapEntry_t));
     entry->key = key;
     entry->value = value;
+    entry->next = NULL;
     if ((float)(map->size + 1) / (float)map->capacity > DEFAULT_LOAD_FACTOR)
         resize(map);
 
