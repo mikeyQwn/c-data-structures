@@ -15,7 +15,6 @@ struct siHashMap {
 
 struct siHashMap *siHashMap_new(void);
 struct siHashMap *siHashMap_newWithCapacity(int);
-struct siHashMap *siHashMap_fromArr(int *, int);
 void siHashMap_put(struct siHashMap *, char *, int);
 int siHashMap_get(struct siHashMap, char *);
 

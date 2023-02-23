@@ -44,8 +44,6 @@ struct siHashMap *siHashMap_new() {
     return siHashMap_newWithCapacity(DEFAULT_CAPACITY);
 };
 
-struct siHashMap *siHashMap_fromArr(int *, int){};
-
 void siHashMap_put(struct siHashMap *map, char *key, int value) {
     siHashMapEntry_t *entry =
         (siHashMapEntry_t *)malloc(sizeof(siHashMapEntry_t));
