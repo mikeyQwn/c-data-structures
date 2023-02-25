@@ -26,7 +26,13 @@ struct iVector *iVector_newWithCapacity(int capacity) {
     return vector;
 };
 
-struct iVector *iVector_fromArr(int *, int);
+struct iVector *iVector_fromArr(int *array, int length) {
+    struct iVector *vector = iVector_newWithCapacity(length * 2);
+    for (int i = 0; i < length; ++i) {
+        iVector_push(vector, array[i]);
+    }
+    return vector;
+};
 
 void iVector_push(struct iVector *vector, int value) {
     if (vector->length + 1 > vector->capacity) {
@@ -36,9 +42,19 @@ void iVector_push(struct iVector *vector, int value) {
     ++vector->length;
 };
 
-int iVector_pop(struct iVector, int);
+int iVector_pop(struct iVector *vector) {
+    int result = vector->array[vector->length - 1];
+    vector->array[vector->length - 1] = 0;
+    --vector->length;
+    return result;
+};
 
-void iVector_clear(struct iVector);
+void iVector_clear(struct iVector *vector) {
+    for (int i = 0; i < vector->length; ++i) {
+        vector->array[i] = 0;
+    }
+    vector->length = 0;
+};
 
 int iVector_indexOf(struct iVector, int);
 
