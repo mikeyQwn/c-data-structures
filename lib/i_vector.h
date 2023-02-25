@@ -15,7 +15,7 @@ int iVector_pop(struct iVector *);
 void iVector_clear(struct iVector *);
 int iVector_indexOf(struct iVector, int);
 int iVector_get(struct iVector, int);
-void iVector_add(struct iVector, int, int);
-void iVector_remove(struct iVector, int);
+int iVector_add(struct iVector *, int, int);
+int iVector_remove(struct iVector *, int);
 
 #endif

@@ -56,10 +56,43 @@ void iVector_clear(struct iVector *vector) {
     vector->length = 0;
 };
 
-int iVector_indexOf(struct iVector, int);
+int iVector_indexOf(struct iVector vector, int value) {
+    for (int i = 0; i < vector.length; ++i)
+        if (vector.array[i] == value)
+            return i;
+    return -1;
+};
 
-int iVector_get(struct iVector, int);
+int iVector_get(struct iVector vector, int index) {
+    if (index >= vector.length || index < 0)
+        return -1;
+    return vector.array[index];
+};
 
-void iVector_add(struct iVector, int, int);
+int iVector_add(struct iVector *vector, int index, int value) {
+    if (index > vector->length || index < 0)
+        return -1;
+    if (vector->length + 1 > vector->capacity) {
+        resize(vector);
+    }
+    int prev = vector->array[index];
+    vector->array[index] = value;
 
-void iVector_remove(struct iVector, int);
+    for (int i = index + 1; i < vector->length + 1; ++i) {
+        vector->array[i] += prev;
+        prev = vector->array[i] - prev;
+        vector->array[i] -= prev;
+    }
+    ++vector->length;
+    return 0;
+};
+
+int iVector_remove(struct iVector *vector, int index) {
+    if (index >= vector->length || index < 0)
+        return -1;
+    int result = vector->array[index];
+    for (int i = index; i < vector->length; ++i)
+        vector->array[i] = vector->array[i + 1];
+    --vector->length;
+    return result;
+};
