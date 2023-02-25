@@ -9,3 +9,5 @@ This is a collection of useful data structures that are not implemented in c.
 ## Includes:
 
 -   linked list(int)
+-   hash map(char\*, int)
+-   vector(int)
