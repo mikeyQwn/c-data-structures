@@ -8,9 +8,9 @@ struct iVector {
 };
 
 struct iVector *iVector_new();
-struct iVector *iVector_newWithCapacity();
+struct iVector *iVector_newWithCapacity(int);
 struct iVector *iVector_fromArr(int *, int);
-void iVector_push(struct iVector, int);
+void iVector_push(struct iVector *, int);
 int iVector_pop(struct iVector, int);
 void iVector_clear(struct iVector);
 int iVector_indexOf(struct iVector, int);

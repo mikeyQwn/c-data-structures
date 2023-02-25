@@ -2,4 +2,4 @@
 #include "lib/i_vector.h"
 #include "lib/si_hash_map.h"
 
-int main(void) { return 0; }
+int main(void) {}
